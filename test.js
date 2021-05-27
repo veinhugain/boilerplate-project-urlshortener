@@ -20,7 +20,7 @@ console.log(ShortURL);
 const createAndSaveShortURL = (newURL,res) => {
   url = newURL['url'];
   if (!isValidURL(url)){
-    return res.json({ error: 'invalid url'+'first' })
+    return res.json({ error: 'invalid url' })
   }
   
   domain = url.split('/')[2]
@@ -169,7 +169,8 @@ const queryChain = done => {
 };
 
   function isValidURL(string) {
-  var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+  //var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+  var res = string.match(/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/ig);
   return (res !== null)
 };
 /** **Well Done !!**
